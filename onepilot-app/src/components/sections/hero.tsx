@@ -601,7 +601,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.5 }}
             className="w-full lg:flex-1 lg:max-w-[560px]"
           >
-            {/* Desktop SVG */}
+            {/* Ecosystem SVG */}
             <motion.div
               animate={{ scale: [1, 1.02, 1] }}
               transition={{
@@ -609,15 +609,10 @@ export default function Hero() {
                 repeat: Infinity,
                 ease: "easeInOut" as const,
               }}
-              className="hidden md:block aspect-square"
+              className="w-full aspect-square max-w-[560px] mx-auto"
             >
               <EcosystemSVG />
             </motion.div>
-
-            {/* Mobile grid fallback */}
-            <div className="block md:hidden py-6">
-              <EcosystemGrid />
-            </div>
           </motion.div>
         </div>
       </div>

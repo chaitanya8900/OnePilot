@@ -101,8 +101,8 @@ export default function PricingPage() {
               Every business has unique goals, challenges, and requirements. Instead of forcing businesses into predefined packages, we create tailored solutions based on what your business actually needs.
             </p>
 
-            <div className="w-[200%] relative text-left my-6 md:my-10 h-[36px] sm:h-[48px] md:h-[60px]">
-              <p className="font-semibold text-[24px] sm:text-[32px] md:text-[42px] lg:text-[38px] tracking-[-0.02em] text-ink whitespace-nowrap">
+            <div className="w-full md:w-[200%] relative text-left my-6 md:my-10 h-auto md:h-[60px]">
+              <p className="font-semibold text-[24px] sm:text-[32px] md:text-[42px] lg:text-[46px] tracking-[-0.02em] text-ink whitespace-normal md:whitespace-nowrap leading-[1.4] md:leading-normal">
                 <TypewriterText text="Explore our services, identify what you need, and book a strategy call." delay={800} />
               </p>
             </div>

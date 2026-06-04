@@ -127,8 +127,8 @@ export default function Ecosystem() {
         {/* Two-column Layout on Desktop */}
         <div className="max-w-[1280px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
-          {/* Left: Desktop SVG Network */}
-          <div className="hidden md:block w-full lg:w-[60%] shrink-0">
+          {/* Left: SVG Network */}
+          <div className="w-full lg:w-[60%] shrink-0">
             <svg
               viewBox="0 0 800 800"
               className="w-full h-auto"
@@ -274,47 +274,7 @@ export default function Ecosystem() {
               Every function works together as one integrated ecosystem.
             </p>
 
-            {/* Mobile Grid */}
-            <div className="md:hidden w-full">
-              <div className="grid grid-cols-2 gap-3">
-                {nodes.map((node, i) => {
-                  const Icon = node.icon;
-                  const isActive = tappedNode === i;
 
-                  return (
-                    <motion.button
-                      key={node.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.3 + i * 0.06 }}
-                      onClick={() => setTappedNode(isActive ? null : i)}
-                      className={`bg-surface-1 border rounded-[12px] p-4 text-left transition-all duration-200 ${isActive
-                        ? "border-primary bg-surface-2"
-                        : "border-hairline"
-                        }`}
-                    >
-                      <Icon
-                        size={20}
-                        strokeWidth={1.5}
-                        className="text-primary mb-2"
-                      />
-                      <p className="text-[13px] text-ink font-medium">
-                        {node.label}
-                      </p>
-                      {isActive && (
-                        <motion.p
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          className="text-[12px] text-ink-muted mt-1.5"
-                        >
-                          {node.role}
-                        </motion.p>
-                      )}
-                    </motion.button>
-                  );
-                })}
-              </div>
-            </div>
           </div>
         </div>
       </motion.div>

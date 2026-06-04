@@ -17,7 +17,7 @@ export default function ContactPage() {
     businessType: "",
     services: ""
   });
-  
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -35,13 +35,13 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
-    
+
     const newErrors: Record<string, string> = {};
-    
+
     // Mandatory field check
     if (!formData.name) newErrors.name = "Name is required.";
     if (!formData.businessName) newErrors.businessName = "Business name is required.";
-    
+
     if (!formData.email) {
       newErrors.email = "Email is required.";
     } else {
@@ -50,7 +50,7 @@ export default function ContactPage() {
         newErrors.email = "Please enter a valid email address.";
       }
     }
-    
+
     if (!formData.phone) {
       newErrors.phone = "Phone number is required.";
     } else {
@@ -65,7 +65,7 @@ export default function ContactPage() {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      
+
       // Scroll to the first field with an error
       const firstErrorField = Object.keys(newErrors)[0];
       const element = document.getElementById(firstErrorField);
@@ -95,7 +95,7 @@ export default function ContactPage() {
 
       setSuccess(true);
       setFormData({ name: "", businessName: "", email: "", phone: "", businessType: "", services: "" });
-      
+
       // Scroll to the success message
       setTimeout(() => {
         const formTop = document.getElementById("contact-form-top");
@@ -115,9 +115,9 @@ export default function ContactPage() {
   const renderError = (fieldId: string) => (
     <AnimatePresence>
       {errors[fieldId] && (
-        <motion.div 
-          initial={{ opacity: 0, y: -4, height: 0 }} 
-          animate={{ opacity: 1, y: 0, height: 'auto' }} 
+        <motion.div
+          initial={{ opacity: 0, y: -4, height: 0 }}
+          animate={{ opacity: 1, y: 0, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           className="overflow-hidden"
         >
@@ -183,7 +183,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <Globe className="text-primary/70" size={16} />
-                <a href="#" className="text-[12px] text-ink-muted hover:text-primary transition-colors">LinkedIn: OnePilot</a>
+                <a href="https://www.linkedin.com/company/onepilotin/" target="_blank" rel="noopener noreferrer" className="text-[12px] text-ink-muted hover:text-primary transition-colors">LinkedIn: onepilotin</a>
               </div>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function ContactPage() {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[320px] bg-primary/5 blur-[80px] pointer-events-none" />
 
               <form id="contact-form-top" onSubmit={handleSubmit} className="flex flex-col gap-5 relative z-10" noValidate>
-                
+
                 {/* Global Form Messages */}
                 {submitError && (
                   <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-[13px] p-3 rounded-[8px] flex items-center gap-2">
@@ -205,7 +205,7 @@ export default function ContactPage() {
                   </div>
                 )}
                 {success && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.95, y: -10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     className="bg-[#E8F5E9] dark:bg-[#1B2B20] border-2 border-[#81C784] dark:border-[#388E3C] p-5 rounded-[12px] flex items-start gap-4 shadow-[0_8px_30px_rgba(76,175,80,0.2)]"

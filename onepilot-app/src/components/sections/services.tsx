@@ -73,24 +73,24 @@ function InteractivePill({ pillar }: { pillar: PillarItem }) {
         className={cn(
           "relative flex flex-col justify-center bg-surface-1 border shadow-xl overflow-hidden backdrop-blur-xl",
           isHovered
-            ? "w-[280px] h-auto p-6 rounded-[20px] border-primary/40 shadow-[0_16px_40px_rgba(0,0,0,0.5)] z-30"
-            : "w-auto h-[48px] px-5 rounded-full border-hairline hover:border-hairline-strong cursor-pointer z-20"
+            ? "w-[420px] h-auto p-8 rounded-[24px] border-primary/40 shadow-[0_16px_40px_rgba(0,0,0,0.5)] z-30"
+            : "w-auto h-[60px] px-8 rounded-full border-hairline hover:border-hairline-strong cursor-pointer z-20"
         )}
         transition={{ type: "spring", stiffness: 400, damping: 28 }}
       >
-        <motion.div layout className="flex items-center gap-3">
+        <motion.div layout className="flex items-center gap-4">
           <div
             className={cn(
               "relative flex items-center justify-center shrink-0 rounded-full transition-colors",
-              isHovered ? "bg-primary/10 w-10 h-10" : "bg-transparent w-auto h-auto"
+              isHovered ? "bg-primary/10 w-14 h-14" : "bg-transparent w-auto h-auto"
             )}
           >
-            <pillar.icon className="text-primary z-10 relative" size={isHovered ? 20 : 18} />
+            <pillar.icon className="text-primary z-10 relative" size={isHovered ? 30 : 28} />
             {!isHovered && (
-              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 animate-ping" />
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary/20 animate-ping" />
             )}
           </div>
-          <motion.span layout className="font-semibold tracking-tight text-[15px] text-ink z-10 relative">
+          <motion.span layout className="font-semibold tracking-tight text-[18px] text-ink z-10 relative">
             {pillar.title}
           </motion.span>
         </motion.div>
@@ -125,8 +125,8 @@ function InteractivePill({ pillar }: { pillar: PillarItem }) {
 
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
-  // Increase margin to require more scrolling before animation starts
-  const isInView = useInView(sectionRef, { once: true, margin: "-450px" });
+  // Reduced margin to ensure it triggers on mobile viewports
+  const isInView = useInView(sectionRef, { once: true, margin: "-150px" });
 
   return (
     <section ref={sectionRef} className="py-[96px] md:py-[160px] bg-canvas overflow-hidden">

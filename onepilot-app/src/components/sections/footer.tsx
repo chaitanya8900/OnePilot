@@ -72,6 +72,9 @@ export default function Footer() {
             <p className="text-[14px] leading-[1.5] text-ink-subtle mt-3 max-w-[200px]">
               Everything your business needs. One partner.
             </p>
+            <a href="mailto:hello@onepilot.in" className="text-[14px] leading-[1.5] font-medium text-ink hover:text-primary transition-colors block mt-4">
+              hello@onepilot.in
+            </a>
           </div>
 
           {/* Column 2 — Product */}
