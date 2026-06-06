@@ -212,8 +212,8 @@ export default function ContactPage() {
                   >
                     <CheckCircle2 size={24} className="text-[#4CAF50] shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-[15px] font-semibold text-ink mb-1">Strategy Call Requested!</h4>
-                      <p className="text-[13px] text-ink-muted leading-[1.5]">
+                      <h4 className="text-[15px] font-semibold text-[#2E7D32] dark:text-[#81C784] mb-1">Strategy Call Requested!</h4>
+                      <p className="text-[13px] text-[#388E3C] dark:text-[#A5D6A7] leading-[1.5]">
                         Your details have been successfully received. We will review your business information and reach out to you within 24 hours.
                       </p>
                     </div>

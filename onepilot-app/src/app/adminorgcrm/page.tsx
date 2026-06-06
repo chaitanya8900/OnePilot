@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createClient } from "@/utils/supabase/client";
-import { Mail, Phone, Building2, Briefcase, Trash2, ChevronDown, ChevronUp, LayoutDashboard, UserPlus, PhoneCall, Clock, CheckCircle2, PauseCircle, LogOut } from "lucide-react";
+import { Mail, Phone, Building2, Briefcase, Trash2, ChevronDown, ChevronUp, LayoutDashboard, UserPlus, PhoneCall, Clock, CheckCircle2, PauseCircle, LogOut, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { useTheme } from "@/lib/theme-provider";
 
 export type ContactStatus = 'new' | 'contacted' | 'yet_to_serve' | 'live' | 'on_hold';
 
@@ -32,6 +33,7 @@ const STATUS_TABS: { id: ContactStatus; label: string; icon: React.ElementType }
 export default function AdminCrmPage() {
   const router = useRouter();
   const supabase = createClient();
+  const { theme, toggleTheme } = useTheme();
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -102,6 +104,7 @@ export default function AdminCrmPage() {
         // Optimistic update
         setContacts(prev => prev.map(c => c.id === id ? { ...c, status: newStatus } : c));
         setExpandedId(null); // Close expanded card when moving
+        setActiveTab(newStatus); // Automatically switch to the new list
         
         try {
           const { error } = await supabase
@@ -175,12 +178,20 @@ export default function AdminCrmPage() {
       
       {/* Sidebar Navigation */}
       <aside className="w-full md:w-[280px] bg-surface-1 border-r border-hairline flex flex-col shrink-0 md:h-screen z-10 shadow-sm md:shadow-none relative">
-        <div className="p-6 border-b border-hairline">
+        <div className="p-6 border-b border-hairline relative">
           <div className="flex items-center gap-2 text-ink">
             <LayoutDashboard className="text-primary" />
             <h1 className="text-[20px] font-semibold tracking-tight">CRM Admin</h1>
           </div>
-          <p className="text-[13px] text-ink-muted mt-2">Manage all incoming requests and clients.</p>
+          <p className="text-[13px] text-ink-muted mt-2 pr-8">Manage all incoming requests and clients.</p>
+          
+          <button 
+            onClick={toggleTheme}
+            className="absolute top-6 right-6 w-8 h-8 rounded-full bg-surface-2 border border-hairline flex items-center justify-center text-ink-subtle hover:text-ink transition-colors hover:bg-surface-3"
+            aria-label="Toggle Theme"
+          >
+            {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
+          </button>
         </div>
         
         <nav className="p-4 flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-y-auto custom-scrollbar">
