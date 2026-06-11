@@ -40,7 +40,7 @@ const nodes = [
   },
   {
     id: "websites",
-    label: "Websites",
+    label: "Software & Websites",
     icon: Globe,
     role: "Your 24/7 digital storefront and lead engine",
   },

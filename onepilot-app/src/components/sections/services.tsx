@@ -20,7 +20,7 @@ const pillars: PillarItem[] = [
     title: "BUILD",
     icon: Hammer,
     subtitle: "Create your digital foundation",
-    items: ["Websites", "Design", "Branding", "Digital Products"],
+    items: ["Websites", "Software", "Design", "Branding", "Digital Products"],
     x: 10,
     y: 75,
     align: "left",

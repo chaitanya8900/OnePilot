@@ -12,6 +12,7 @@ const serviceCards = [
     title: "BUILD",
     description: "Create the digital foundation your business needs.",
     services: [
+      "Software Development",
       "Website Development",
       "Landing Pages",
       "UI/UX Design",
